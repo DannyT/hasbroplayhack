@@ -4,19 +4,19 @@
 }
 
 .player.win {
-  background-color: green;
+  background-color: #5cb85c;
 }
 
 .player.fail {
-  background-color: red;
+  background-color: #d9534f;
 }
 
 .win.selected {
-  background-color:green;
+  background-color:#5cb85c;
     color: #eee;
 }
 
 .fail.selected {
-  background-color: red;
+  background-color: #d9534f;
     color: #eee;
 }
