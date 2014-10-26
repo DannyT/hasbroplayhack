@@ -1,0 +1,12 @@
+/* CSS declarations go here */
+.player.selected {
+    background-color: yellow;
+}
+
+.win.selected {
+  background-color:green;
+}
+
+.fail.selected {
+  background-color: red;
+}

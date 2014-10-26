@@ -1,0 +1,77 @@
+<head>
+  <title>winfailapp</title>
+</head>
+
+<body>
+  {{> signupform }}
+  {{> loggedIn }}
+  {{> leaderboard }}
+  {{> outcomebar }}
+  {{> yourscore }}
+  {{> votebar }}
+</body>
+
+<template name="signupform">
+  {{#if show}}
+    <div class="signupform">
+      <h1>Hell yeah, sign me up!</h1>
+      <form>
+        <label for="username">Username</label>
+        <input class="js-username" type="text">
+        <input type="button" class="js-signup" value="Let's do this!" />
+      </form>
+    </div>
+  {{/if}}
+</template>
+
+<template name="loggedIn">
+  {{#if show}}
+  <div>
+    <span>You're logged in as {{player.name}}</span>
+  </div>
+  {{/if}}
+</template>
+
+<template name="leaderboard">
+  {{#if show}}
+  <div class="leaderboard">
+    <h1>Leaderboard</h1>
+    {{#each players}}
+      {{> player}}
+    {{/each}}
+  </div>
+  {{/if}}
+</template>
+
+<template name="player">
+  <div class="player {{selected}}">
+    <span class="name">{{name}}</span>
+    <span class="currentGuess">{{currentGuess}}</span>
+  </div>
+</template>
+
+<template name="outcomebar">
+  {{#if show}}
+  <div>
+    <h1>How'd they do?</h1>
+    <button class="js-lost">-</button>
+    <button class="js-won">+</button>
+  </div>
+  {{/if}}
+</template>
+
+<template name="yourscore">
+  {{#if show}}
+  <span>Your score: {{player.score}}</span>
+  {{/if}}
+</template>
+
+<template name="votebar">
+  {{#if show}}
+  <div>
+    <h1>Win or Fail?</h1>
+    <button class="js-will-win win {{winSelected}}">Win</button>
+    <button class="js-will-fail fail {{failSelected}}">Fail</button>
+  </div>
+  {{/if}}
+</template>
