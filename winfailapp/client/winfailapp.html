@@ -1,92 +1,92 @@
 <head>
-  <title>winfailapp</title>
+    <title>winfailapp</title>
 </head>
 
 <body>
-  <div class="container">
-      <div class="row">
-          <div class="col-sm-8 col-sm-offset-2">
-              <h1>Play/Hack/Bet</h1>
-          </div>
-      </div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8 col-sm-offset-2">
+            <h1>Play/Hack/Bet</h1>
+        </div>
+    </div>
 
-  {{> signupform }}
-  {{> loggedIn }}
-  {{> leaderboard }}
-  {{> outcomebar }}
-  {{> yourscore }}
-  {{> votebar }}
-  </div>
+    {{> signupform }}
+    {{> loggedIn }}
+    {{> leaderboard }}
+    {{> outcomebar }}
+    {{> yourscore }}
+    {{> votebar }}
+</div>
 </body>
 
 <template name="signupform">
-  {{#if show}}
-    <div class="row">
-      <div class="col-sm-8 col-sm-offset-2">
-        <div class="signupform jumbotron">
+    {{#if show}}
+        <div class="row">
+            <div class="col-sm-8 col-sm-offset-2">
+                <div class="signupform jumbotron">
 
-          <p>Add another layer to your (Hasbro) board games. Bet on your friends' failing.</p>
+                    <p>Add another layer to your (Hasbro) board games. Bet on your friends' failing.</p>
 
-          <h3>Sign me up!</h3>
+                    <h3>Sign me up!</h3>
 
-          <form>
-            <label for="username">Username</label>
-            <input class="js-username" type="text">
-            <input type="button" class="js-signup btn btn-primary" value="Let's do this!"/>
-          </form>
+                    <form>
+                        <label for="username">Username</label>
+                        <input class="js-username" type="text">
+                        <input type="button" class="js-signup btn btn-primary" value="Let's do this!"/>
+                    </form>
+                </div>
+            </div>
         </div>
-          </div>
-    </div>
-  {{/if}}
+    {{/if}}
 </template>
 
 <template name="loggedIn">
-  {{#if show}}
-  <div class="row">
-      <div class="col-sm-8 col-sm-offset-2">
-    <span>You're logged in as {{player.name}}</span>
-          </div>
-  </div>
-  {{/if}}
+    {{#if show}}
+        <div class="row">
+            <div class="col-sm-8 col-sm-offset-2">
+                <span>You're logged in as {{player.name}}</span>
+            </div>
+        </div>
+    {{/if}}
 </template>
 
 <template name="leaderboard">
-  {{#if show}}
-  <div class="row">
-    <div class="col-sm-8 col-sm-offset-2">
-      <div class="leaderboard">
-        <h1>Leaderboard</h1>
-        {{#each players}}
-          {{> player}}
-        {{/each}}
-      </div>
-    </div>
-  </div>
-  {{/if}}
+    {{#if show}}
+        <div class="row">
+            <div class="col-sm-8 col-sm-offset-2">
+                <div class="leaderboard">
+                    <h1>Leaderboard</h1>
+                    {{#each players}}
+                        {{> player}}
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    {{/if}}
 </template>
 
 <template name="player">
     <div class="row">
         <div class="col-sm-8 col-sm-offset-2">
-  <div class="player {{currentGuess}}">
-    <span class="name">{{name}}</span>
-  </div>
+            <div class="player {{currentGuess}}">
+                <span class="name">{{name}}</span>
             </div>
         </div>
+    </div>
 </template>
 
 <template name="outcomebar">
-  {{#if show}}
-  <div class="row">
-  <div class="col-sm-8 col-sm-offset-2">
+    {{#if show}}
+        <div class="row">
+            <div class="col-sm-8 col-sm-offset-2">
 
-    <h1>How'd they do?</h1>
-    <button class="js-lost btn btn-danger">-</button>
-    <button class="js-won btn btn-success">+</button>
+                <h1>How'd they do?</h1>
+                <button class="js-lost btn btn-danger">-</button>
+                <button class="js-won btn btn-success">+</button>
 
-    </div>
-    </div>
-  {{/if}}
+            </div>
+        </div>
+    {{/if}}
 </template>
 
 <template name="yourscore">
@@ -94,21 +94,21 @@
         <div class="col-sm-8 col-sm-offset-2">
 
             {{#if show}}
-            <span>Your score: {{player.score}}</span>
+                <span>Your score: {{player.score}}</span>
             {{/if}}
         </div>
     </div>
 </template>
 
 <template name="votebar">
-  {{#if show}}
-  <div class="row">
-  <div class="col-sm-8 col-sm-offset-2">
+    {{#if show}}
+        <div class="row">
+            <div class="col-sm-8 col-sm-offset-2">
 
-    <h1>Win or Fail?</h1>
-    <button class="js-will-win win {{winSelected}}">Win</button>
-    <button class="js-will-fail fail {{failSelected}}">Fail</button>
-  </div>
-  </div>
-  {{/if}}
+                <h1>Win or Fail?</h1>
+                <button class="js-will-win win {{winSelected}}">Win</button>
+                <button class="js-will-fail fail {{failSelected}}">Fail</button>
+            </div>
+        </div>
+    {{/if}}
 </template>
