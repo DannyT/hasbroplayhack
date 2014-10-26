@@ -28,8 +28,8 @@ var updateScores = function(wasUserRight) {
 // sign up form
 Template.signupform.events({
   // when user submits username
-  'click input.js-signup': function () {
-      
+  'submit': function () {
+      console.log("Sign up");
       var username = $('input.js-username').val();
 
       // check if player already exists
@@ -40,6 +40,7 @@ Template.signupform.events({
       
       // set player on session
       Session.set('player_id', player_id);
+      return false;
   }
 });
 

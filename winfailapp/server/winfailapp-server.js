@@ -12,12 +12,11 @@ Meteor.methods({
     }
 
     Players.update({currentGuess:wasUserRight},
-      { $inc:{score : 1}, $set: {currentGuess: ''}
-    });
+      { $inc:{score : 1}, $set: {currentGuess: ''}}, {multi: true});
 
     // reset others
 
-    Players.update({currentGuess:opposite}, {$set: {currentGuess: ''}});
+    Players.update({currentGuess:opposite}, {$set: {currentGuess: ''}}, {multi: true});
     //Tracker.flush();
   }
 });
