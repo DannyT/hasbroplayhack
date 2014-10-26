@@ -114,7 +114,5 @@ Template.votebar.failSelected = function () {
 //////
 
 Meteor.startup(function () {
-  Deps.autorun(function () {
-    Meteor.subscribe('players');
-  });
+
 });
