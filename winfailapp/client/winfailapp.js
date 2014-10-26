@@ -21,6 +21,14 @@ var deletePlayer = function(playerId){
   Players.remove({_id:playerId});
 }
 
+var udpateScores = function(userGuess) {
+  Players.update({currentGuess:userGuess}
+    , {
+        $set: {currentGuess: ''}
+        , $inc:{score : 1}
+      });
+  }
+
 // sign up form
 Template.signupform.events({
   // when user submits username
@@ -32,7 +40,7 @@ Template.signupform.events({
       var player = Players.findOne({name:username});
       
       // if not create them
-      var player_id = player ? player._id : Players.insert({name : username, isAdmin: username == 'admin'});
+      var player_id = player ? player._id : Players.insert({name : username, isAdmin : username == 'admin', score : 0});
       
       // set player on session
       Session.set('player_id', player_id);
@@ -55,12 +63,9 @@ Template.loggedIn.player = function() {
 
 // Leaderboard
 Template.leaderboard.events({
-  'click': function (e) {
+  'click' : function (e) {
     if(e.altKey) {
       deletePlayer(this._id);
-    }
-    else {
-      Session.set('selected_player', this._id);
     }
   }
 });
@@ -73,11 +78,15 @@ Template.leaderboard.players = function () {
   return Players.find({isAdmin:false}, {sort: {score: -1, name: 1}});
 };
 
-Template.player.selected = function () {
-  return Session.equals('selected_player', this._id) ? 'selected' : '';
-};
+Template.outcomebar.events({
+  'click .js-lost' : function(e) {
+    updateScores('fail');
+  },
+  'click .js-win' : function(e) {
+    updateScores('win');
+  }
+});
 
-// Admin view
 Template.outcomebar.show = function () {
   return isAdmin();
 };
