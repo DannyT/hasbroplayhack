@@ -43,18 +43,18 @@ Template.signupform.events({
   }
 });
 
-Template.signupform.show = function () {
+Template.signupform.helpers({show: function () {
   return !loggedIn();
-}
+}});
 
-Template.loggedIn.show = function () {
+Template.loggedIn.helpers({show:function () {
   // only show lobby if we're not in a game
   return loggedIn();
-};
+}});
 
-Template.loggedIn.player = function() {
+Template.loggedIn.helpers({player:function() {
   return player();
-};
+}});
 
 
 // Leaderboard
@@ -66,13 +66,13 @@ Template.leaderboard.events({
   }
 });
 
-Template.leaderboard.show = function() {
+Template.leaderboard.helpers({show: function() {
   return isAdmin();
-}
+}});
 
-Template.leaderboard.players = function () {
+Template.leaderboard.helpers({players: function () {
   return Players.find({isAdmin:false}, {sort: {score: -1, name: 1}});
-};
+}});
 
 Template.outcomebar.events({
   'click .js-lost' : function(e) {
@@ -83,14 +83,14 @@ Template.outcomebar.events({
   }
 });
 
-Template.outcomebar.show = function () {
+Template.outcomebar.helpers({show :function () {
   return isAdmin();
-};
+}});
 
 // Non admin view
-Template.yourscore.show = function () {
+Template.yourscore.helpers({show: function () {
   return player() && !isAdmin();
-};
+}});
 
 Template.votebar.events({
   'click button.js-will-win' : function() {
@@ -101,17 +101,22 @@ Template.votebar.events({
   }
 });
 
-Template.votebar.show = function () {
+Template.votebar.helpers({show: function () {
   return player() && !isAdmin();
-};
+}});
 
-Template.votebar.winSelected = function () {
-  return player().currentGuess == 'win' ? 'selected' : '';
-};
+Template.votebar.helpers(
+    {
+      winSelected: function () {
+        return player().currentGuess == 'win' ? 'selected' : '';
+      }
+    });
 
-Template.votebar.failSelected = function () {
-  return player().currentGuess == 'fail' ? 'selected' : '';
-};
+Template.votebar.helpers({
+  failSelected: function () {
+    return player().currentGuess == 'fail' ? 'selected' : '';
+  }
+});
 
 
 //////

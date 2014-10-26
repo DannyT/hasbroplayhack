@@ -3,13 +3,21 @@
 Meteor.methods({
   updateScores : function(wasUserRight) {
     // increment score for all those who guessed correctly
-    Players.update({currentGuess:wasUserRight}, 
-      { $inc:{score : 1} 
+
+    var opposite;
+    if(wasUserRight == "win"){
+      opposite = "fail";
+    }else{
+      opposite = "win";
+    }
+
+    Players.update({currentGuess:wasUserRight},
+      { $inc:{score : 1}, $set: {currentGuess: ''}
     });
-    
-    // reset all guesses
-    Players.update({isAdmin:false}, 
-      { $set: {currentGuess: ''}
-    });
+
+    // reset others
+
+    Players.update({currentGuess:opposite}, {$set: {currentGuess: ''}});
+    //Tracker.flush();
   }
-})
+});

@@ -61,9 +61,20 @@
             <div class="col-sm-8 col-sm-offset-2">
                 <div class="leaderboard">
                     <h1>Leaderboard</h1>
-                    {{#each players}}
-                        {{> player}}
-                    {{/each}}
+
+                    <table class="table">
+                        <tr class="text-center">
+                            <td>
+                                <strong>Player</strong>
+                            </td>
+                            <td>
+                                <strong>Score</strong>
+                            </td>
+                        </tr>
+                        {{#each players}}
+                            {{> player}}
+                        {{/each}}
+                    </table>
                 </div>
             </div>
         </div>
@@ -71,14 +82,14 @@
 </template>
 
 <template name="player">
-    <div class="row">
-        <div class="col-sm-8 col-sm-offset-2">
-            <div class="player {{currentGuess}}">
-                <span class="name">{{name}}</span>
-                <span class="score">{{score}}</span>
-            </div>
-        </div>
-    </div>
+    <tr>
+        <td class="player {{currentGuess}} text-center">
+            <span class="name">{{name}}</span>
+        </td>
+        <td class="text-center">
+            <span class="score">{{score}}</span>
+        </td>
+    </tr>
 </template>
 
 <template name="outcomebar">

@@ -5,10 +5,12 @@
 
 .player.win {
   background-color: #5cb85c;
+  color: #eee;
 }
 
 .player.fail {
   background-color: #d9534f;
+  color: #eee;
 }
 
 .win.selected {
@@ -19,4 +21,8 @@
 .fail.selected {
   background-color: #d9534f;
     color: #eee;
+}
+
+td{
+  padding:10px;
 }
