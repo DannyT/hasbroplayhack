@@ -8,20 +8,26 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-8 col-sm-offset-2">
-                <h1 class="text-center">Play/Hack/Bet</h1>
+                <h1 class="text-center"><span class="glyphicon glyphicon-tower"></span>&nbsp;&nbsp;Play/Hack/Bet</h1>
                 <h6 class="text-center">A Hack for Hasbro Play/Hack</h6>
             </div>
         </div>
     </div>
 </div>
 
-<div class="container" style="padding-top: 20px;">
+<div class="container" style="padding-top: 20px; padding-bottom: 40px;">
     {{> signupform }}
     {{> loggedIn }}
     {{> leaderboard }}
     {{> outcomebar }}
     {{> yourscore }}
     {{> votebar }}
+
+    <div class="row" style="padding-top:40px;">
+        <div class="col-sm-8 col-sm-offset-2 text-center">
+            <h4>A hack by <a href="https://twitter.com/dannyt">@dannyt</a> and <a href="https://twitter.com/complexview">@complexview</a></h4>
+        </div>
+    </div>
 </div>
 </body>
 
@@ -29,16 +35,23 @@
     {{#if show}}
         <div class="row">
             <div class="col-sm-8 col-sm-offset-2">
-                <div class="signupform jumbotron">
+                <div class="signupform jumbotron text-center">
 
                     <p>Add another layer to your (Hasbro) board games. Bet that your friends will fail.</p>
 
                     <h3>Sign me up!</h3>
 
                     <form action="">
-                        <label for="username">Username</label>
-                        <input class="js-username" type="text">
-                        <input type="submit" class="js-signup btn btn-primary" value="Let's do this!"/>
+                        <div class="row">
+                            <div class="col-sm-10 col-sm-offset-1">
+                                <input class="js-username" type="text" placeholder="Twitter Handle">
+                            </div>
+                        </div>
+                        <div class="row" style="padding-top: 10px;">
+                            <div class="col-sm-6 col-sm-offset-3">
+                                <input type="submit" class="js-signup btn btn-primary btn-lg" value="Let's do this!"/>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -60,10 +73,16 @@
     {{#if show}}
         <div class="row">
             <div class="col-sm-8 col-sm-offset-2">
-                <div class="leaderboard">
-                    <h1>Leaderboard</h1>
 
-                    <table class="table">
+                <div class="text-center">
+                    <h3>Join this game at:</h3>
+                    <h5>playhackbet.meteor.com</h5>
+                </div>
+
+                <div class="leaderboard">
+                    <h1 class="text-center">Leaderboard</h1>
+
+                    <table class="table" style="padding-top: 20px;">
                         <tr class="text-center">
                             <td>
                                 <strong>Player</strong>
@@ -95,15 +114,15 @@
 
 <template name="outcomebar">
     {{#if show}}
-        <div class="row">
+        <div class="row" style="padding-top: 40px;">
             <div class="col-sm-8 col-sm-offset-2">
-                <h1>How'd they do?</h1>
-                <div class="row">
+                <h1 class="text-center">How'd they do?</h1>
+                <div class="row" style="padding-top: 20px;">
                     <div class="col-xs-6 ">
-                        <button class="js-lost btn btn-danger btn-block">-</button>
+                        <button class="js-lost btn btn-danger btn-block  btn-lg"><span class="glyphicon glyphicon-minus"></span></button>
                     </div>
                     <div class="col-xs-6">
-                        <button class="js-won btn btn-success btn-block">+</button>
+                        <button class="js-won btn btn-success btn-block btn-lg"><span class="glyphicon glyphicon-plus"></span></button>
                     </div>
                 </div>
             </div>
@@ -116,7 +135,7 @@
         <div class="row">
             <div class="col-sm-8 col-sm-offset-2 text-center">
                 <h3>Your Score</h3>
-                <h2> {{player.score}}</h2>
+                <h1> {{player.score}}</h1>
             </div>
         </div>
     {{/if}}
@@ -124,16 +143,16 @@
 
 <template name="votebar">
     {{#if show}}
-        <div class="row" style="padding-top: 40px;">
+        <div class="row" style="padding-top: 20px;">
             <div class="col-sm-8 col-sm-offset-2">
                 <h4 class="text-center">In the next round will they</h4>
                 <h1 class="text-center">Win or Fail?</h1>
-                <div class="row">
+                <div class="row" style="padding-top: 20px;">
                     <div class="col-xs-6 ">
-                        <button class="js-will-win win {{winSelected}} btn btn-default btn-block">Win</button>
+                        <button class="js-will-win win {{winSelected}} btn btn-default btn-block btn-lg">Win</button>
                     </div>
                     <div class="col-xs-6">
-                        <button class="js-will-fail fail {{failSelected}} btn btn-default btn-block">Fail</button>
+                        <button class="js-will-fail fail {{failSelected}} btn btn-default btn-block btn-lg">Fail</button>
                     </div>
                 </div>
             </div>

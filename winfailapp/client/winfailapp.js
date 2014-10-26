@@ -50,7 +50,7 @@ Template.signupform.helpers({show: function () {
 
 Template.loggedIn.helpers({show:function () {
   // only show lobby if we're not in a game
-  return loggedIn();
+  return loggedIn() && !player().isAdmin;
 }});
 
 Template.loggedIn.helpers({player:function() {
@@ -91,7 +91,11 @@ Template.outcomebar.helpers({show :function () {
 // Non admin view
 Template.yourscore.helpers({show: function () {
   return player() && !isAdmin();
-}});
+},
+player: function(){
+ return player();
+}
+});
 
 Template.votebar.events({
   'click button.js-will-win' : function() {
