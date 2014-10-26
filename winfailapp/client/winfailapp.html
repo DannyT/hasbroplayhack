@@ -81,9 +81,9 @@
   <div class="col-sm-8 col-sm-offset-2">
 
     <h1>How'd they do?</h1>
-    <button class="js-lost">-</button>
-    <button class="js-won">+</button>
-  
+    <button class="js-lost btn btn-danger">-</button>
+    <button class="js-won btn btn-success">+</button>
+
     </div>
     </div>
   {{/if}}
@@ -93,11 +93,11 @@
     <div class="row">
         <div class="col-sm-8 col-sm-offset-2">
 
-  {{#if show}}
-  <span>Your score: {{player.score}}</span>
-  {{/if}}
-            </div>
+            {{#if show}}
+            <span>Your score: {{player.score}}</span>
+            {{/if}}
         </div>
+    </div>
 </template>
 
 <template name="votebar">
