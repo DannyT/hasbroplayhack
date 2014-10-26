@@ -48,8 +48,8 @@
 <template name="loggedIn">
     {{#if show}}
         <div class="row">
-            <div class="col-sm-8 col-sm-offset-2">
-                <span>You're logged in as {{player.name}}</span>
+            <div class="col-sm-8 col-sm-offset-2 text-center">
+                <span>You are logged in as {{player.name}}</span>
             </div>
         </div>
     {{/if}}
@@ -100,21 +100,21 @@
 </template>
 
 <template name="yourscore">
-    <div class="row">
-        <div class="col-sm-8 col-sm-offset-2">
-
-            {{#if show}}
-                <span>Your score: {{player.score}}</span>
-            {{/if}}
+    {{#if show}}
+        <div class="row">
+            <div class="col-sm-8 col-sm-offset-2 text-center">
+                <h3>Your Score</h3>
+                <h2> {{player.score}}</h2>
+            </div>
         </div>
-    </div>
+    {{/if}}
 </template>
 
 <template name="votebar">
     {{#if show}}
-        <div class="row">
+        <div class="row" style="padding-top: 40px;">
             <div class="col-sm-8 col-sm-offset-2">
-
+                <h4 class="text-center">In the next round will they</h4>
                 <h1 class="text-center">Win or Fail?</h1>
                 <div class="row">
                     <div class="col-xs-6 ">
