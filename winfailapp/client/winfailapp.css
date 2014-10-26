@@ -13,8 +13,10 @@
 
 .win.selected {
   background-color:green;
+    color: #eee;
 }
 
 .fail.selected {
   background-color: red;
+    color: #eee;
 }

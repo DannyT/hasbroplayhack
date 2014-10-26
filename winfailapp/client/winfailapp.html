@@ -3,13 +3,18 @@
 </head>
 
 <body>
-<div class="container">
-    <div class="row">
-        <div class="col-sm-8 col-sm-offset-2">
-            <h1>Play/Hack/Bet</h1>
+<div style="width: 100%; background: black; color: #f9f9f9; padding: 20px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8 col-sm-offset-2">
+                <h1 class="text-center">Play/Hack/Bet</h1>
+                <h6 class="text-center">A Hack for Hasbro Play/Hack</h6>
+            </div>
         </div>
     </div>
+</div>
 
+<div class="container" style="padding-top: 20px;">
     {{> signupform }}
     {{> loggedIn }}
     {{> leaderboard }}
@@ -25,7 +30,7 @@
             <div class="col-sm-8 col-sm-offset-2">
                 <div class="signupform jumbotron">
 
-                    <p>Add another layer to your (Hasbro) board games. Bet on your friends' failing.</p>
+                    <p>Add another layer to your (Hasbro) board games. Bet that your friends will fail.</p>
 
                     <h3>Sign me up!</h3>
 
@@ -79,11 +84,15 @@
     {{#if show}}
         <div class="row">
             <div class="col-sm-8 col-sm-offset-2">
-
                 <h1>How'd they do?</h1>
-                <button class="js-lost btn btn-danger">-</button>
-                <button class="js-won btn btn-success">+</button>
-
+                <div class="row">
+                    <div class="col-xs-6 ">
+                        <button class="js-lost btn btn-danger btn-block">-</button>
+                    </div>
+                    <div class="col-xs-6">
+                        <button class="js-won btn btn-success btn-block">+</button>
+                    </div>
+                </div>
             </div>
         </div>
     {{/if}}
@@ -105,9 +114,15 @@
         <div class="row">
             <div class="col-sm-8 col-sm-offset-2">
 
-                <h1>Win or Fail?</h1>
-                <button class="js-will-win win {{winSelected}}">Win</button>
-                <button class="js-will-fail fail {{failSelected}}">Fail</button>
+                <h1 class="text-center">Win or Fail?</h1>
+                <div class="row">
+                    <div class="col-xs-6 ">
+                        <button class="js-will-win win {{winSelected}} btn btn-default btn-block">Win</button>
+                    </div>
+                    <div class="col-xs-6">
+                        <button class="js-will-fail fail {{failSelected}} btn btn-default btn-block">Fail</button>
+                    </div>
+                </div>
             </div>
         </div>
     {{/if}}
