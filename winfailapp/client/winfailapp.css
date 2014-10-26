@@ -3,6 +3,14 @@
     background-color: yellow;
 }
 
+.player.win {
+  background-color: green;
+}
+
+.player.fail {
+  background-color: red;
+}
+
 .win.selected {
   background-color:green;
 }

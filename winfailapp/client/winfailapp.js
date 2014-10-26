@@ -89,10 +89,10 @@ Template.yourscore.show = function () {
 
 Template.votebar.events({
   'click button.js-will-win' : function() {
-    Players.update({_id : Session.get('player_id')}, {$set: {currentGuess: true}});
+    Players.update({_id : Session.get('player_id')}, {$set: {currentGuess: 'win'}});
   },
   'click button.js-will-fail' : function() {
-    Players.update({_id : Session.get('player_id')}, {$set: {currentGuess: false}});
+    Players.update({_id : Session.get('player_id')}, {$set: {currentGuess: 'fail'}});
   }
 });
 
@@ -101,11 +101,11 @@ Template.votebar.show = function () {
 };
 
 Template.votebar.winSelected = function () {
-  return player().currentGuess ? 'selected' : '';
+  return player().currentGuess == 'win' ? 'selected' : '';
 };
 
 Template.votebar.failSelected = function () {
-  return !player().currentGuess ? 'selected' : '';
+  return player().currentGuess == 'fail' ? 'selected' : '';
 };
 
 
@@ -114,5 +114,7 @@ Template.votebar.failSelected = function () {
 //////
 
 Meteor.startup(function () {
-  
+  Deps.autorun(function () {
+    Meteor.subscribe('players');
+  });
 });
