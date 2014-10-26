@@ -21,13 +21,9 @@ var deletePlayer = function(playerId){
   Players.remove({_id:playerId});
 }
 
-var udpateScores = function(userGuess) {
-  Players.update({currentGuess:userGuess}
-    , {
-        $set: {currentGuess: ''}
-        , $inc:{score : 1}
-      });
-  }
+var updateScores = function(wasUserRight) {
+  Meteor.call('updateScores', wasUserRight);
+}
 
 // sign up form
 Template.signupform.events({
@@ -82,7 +78,7 @@ Template.outcomebar.events({
   'click .js-lost' : function(e) {
     updateScores('fail');
   },
-  'click .js-win' : function(e) {
+  'click .js-won' : function(e) {
     updateScores('win');
   }
 });
